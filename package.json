@@ -1,0 +1,39 @@
+{
+  "name": "mitchells-magical-media-editor",
+  "productName": "Magical Media Editor",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Split long tape rips into tagged clips without losing quality.",
+  "main": "out/main/index.js",
+  "scripts": {
+    "dev": "pnpm build:native && electron-vite dev",
+    "build": "electron-vite build",
+    "start": "pnpm build:native && electron-vite build && electron-vite preview",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run",
+    "test:e2e": "pnpm build:native && electron-vite build && playwright test",
+    "build:native": "sh scripts/build-native.sh"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "electron",
+      "esbuild"
+    ]
+  },
+  "dependencies": {
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.1",
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "electron": "^45.2.0",
+    "electron-vite": "^6.0.0",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.5",
+    "vitest": "^5.0.5"
+  }
+}
