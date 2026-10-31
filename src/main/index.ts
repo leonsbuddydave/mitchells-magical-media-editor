@@ -25,7 +25,8 @@ let queue: AnalysisQueue
 let exporter: Exporter
 
 function placesHelper(): string {
-  return process.env.MME_PLACES_HELPER ?? join(app.getAppPath(), 'native', 'build', 'places')
+  if (process.env.MME_PLACES_HELPER) return process.env.MME_PLACES_HELPER
+  return app.isPackaged ? join(process.resourcesPath, 'places') : join(app.getAppPath(), 'native', 'build', 'places')
 }
 
 function send(channel: string, payload: unknown): void {

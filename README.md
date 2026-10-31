@@ -23,7 +23,13 @@ written for Apple apps, or places can't be looked up.
 pnpm install
 pnpm start        # build and run
 pnpm dev          # run with hot reload
+pnpm dist         # build the Mac app and disk image into dist/
 ```
+
+The app is Apple silicon only, and still needs ffmpeg and exiftool from Homebrew. It
+isn't signed with a Developer ID or notarized, so a copy built on your own Mac opens
+normally, but macOS will block one downloaded from elsewhere. It shares its library
+with `pnpm start`, so don't run both at once.
 
 ## Using it
 
